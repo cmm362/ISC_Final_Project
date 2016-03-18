@@ -6,6 +6,7 @@ The packages that need to be installed are: ggplot2, dplyr and reshape
 I chose not to include the installation in the code because it only needs to happen once per session and I tend to run the code multiple times in a row
 
 Before running the code, please download data files (all of the csv files). I made the code simple for the way I organize my files but that means you don't have the right path to find the data files on your computer. I couldn't get github to download a bunch of folders so to make the code work, you will need to put the following under your "Documents" folder:
+
 Alegre Lab > Sequencing > 09012015 Submission
   All of the csv files you download should be put in the 09012015 Submission folder
 
