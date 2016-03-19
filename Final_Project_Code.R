@@ -1,3 +1,6 @@
+##Christine notes:
+##The only thing I changed to get it up and running was adding library(dplyr).
+
 ## Liz Notes:
 ## You should load any packages you need to run this code
 ## at the top of the script. It won't cause any problems
@@ -5,9 +8,9 @@
 ## remember to do it.
 library(ggplot2)
 library(reshape)
+library(dplyr)
 
 ##Take simple user input to find the correct files
-SequencingFolder <- readline(prompt="Folder containing sequencing submission: ")
 TaxonLevel <- readline(prompt="Taxon Level (L2-L6): ")
 ## SeqDataFileName <- paste("~/Documents/Alegre Lab/Sequencing/", SequencingFolder, "/otu_table_filtered_", TaxonLevel, ".csv", sep = "", collapse = "")
 ###############################
@@ -17,7 +20,7 @@ TaxonLevel <- readline(prompt="Taxon Level (L2-L6): ")
 ## Also, 'collapse = ""' shouldn't be necessary unless paste is taking in
 ## a vector.
 ###############################
-SeqDataFileName <- paste(SequencingFolder, "/otu_table_filtered_", TaxonLevel, ".csv", sep = "", collapse = "")
+SeqDataFileName <- paste("Data/otu_table_filtered_", TaxonLevel, ".csv", sep = "", collapse = "")
 
 #Rename columns in data file as CM Experiment numbers
 seqdata <- read.csv(SeqDataFileName, header = TRUE)
@@ -27,9 +30,7 @@ ColumnCount <- ncol(seqdata)
 ## Liz's recommendation
 ## I removed the absolute file path as above
 ###############################
-KLMapFileName <- paste(SequencingFolder, "/KL_Map.csv", sep = "", collapse = "")
-CMMapFileName <- paste(SequencingFolder, "/CM_Map.csv", sep = "", collapse = "")
-KLnames <- read.csv(KLMapFileName, header = TRUE)
+KLnames <- read.csv("Data/KL_Map.csv", header = TRUE)
 KLnamesfrom <- as.vector(KLnames$Sequencing_Tag)
 KLnamesto <- as.vector(KLnames$Sequencing_ID)
 for (n in 1:500) {
@@ -38,7 +39,7 @@ for (n in 1:500) {
 }
 
 # Rename columns in data file as Experiment_Treatment_Sample_Day
-CMnames <- read.csv(CMMapFileName, header = TRUE)
+CMnames <- read.csv("Data/CM_Map.csv", header = TRUE)
 CMnamesfrom <- as.vector(CMnames$Sequencing_ID)
 CMnamesexp <- as.vector(CMnames$Experiment)
 CMnamestreatment <- as.vector(CMnames$Treatment)
