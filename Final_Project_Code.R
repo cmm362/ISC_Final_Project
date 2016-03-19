@@ -52,16 +52,16 @@ for (a in 1:500) {
 
 #Take user input variables in order to find the correct subsets of data to compare
 #Find Experiment
-ExperimentID <- readline(prompt="Experiment (CM___): ")
+ExperimentID <- readline(prompt="Experiment (CM002.2): ")
 TargetExperiment <- grep(paste(ExperimentID, "_", sep = "", collapse = ""), colnames(seqdata), value = TRUE)
 
 #Find two timepoints from group 1
-Group1 <- readline(prompt="Group 1 (control): ")
-Group2 <- readline(prompt="Group 2 (treatment): ")
-Group1Base = readline(prompt="Baseline timepoint (numerical) for Group 1: ") #Set baseline timepoint for group 1
-Group2Base = readline(prompt="Baseline timepoint (numerical) for Group 2: ") #Set baseline timepoint for group 2
-Group1End = readline(prompt="End timepoint (numerical) for Group 1: ") #Set experimental timepoint for group 1
-Group2End = readline(prompt="End timepoint (numerical) for Group 2: ") #Set experimental timepoint for group 2
+Group1 <- readline(prompt="Group 1 (Control): ")
+Group2 <- readline(prompt="Group 2 (Treatment): ")
+Group1Base = readline(prompt="Baseline timepoint for Group 1 (0): ") #Set baseline timepoint for group 1
+Group2Base = readline(prompt="Baseline timepoint for Group 2 (0): ") #Set baseline timepoint for group 2
+Group1End = readline(prompt="End timepoint for Group 1 (7): ") #Set experimental timepoint for group 1
+Group2End = readline(prompt="End timepoint for Group 2 (7): ") #Set experimental timepoint for group 2
 
 #Define vectors containing the column names for each experimental group
 TargetGroup1 <- grep(paste("_", Group1, "_", sep = "", collapse = ""), TargetExperiment, value = TRUE)
